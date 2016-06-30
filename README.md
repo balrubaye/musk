@@ -33,7 +33,7 @@ var map =musk.newMap();
 map.put('name', 'Sam');
 map.put('age', 20);
 
-map.name='Johny';
+map.name='Johnny';
 
 map.remove('name'); // remove name prop
 

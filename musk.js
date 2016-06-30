@@ -9,6 +9,8 @@
 
 	var musk={};
 	
+	var objProto= Object.prototype;
+
 	//check if it's being by Node.js environemnt or on the browser 
 	//
 	if(typeof module !== 'undefined' && typeof exports !== 'undefined' ){
@@ -76,5 +78,35 @@
 
 	musk.mixin = mixin ;
 
+	//Create new Map
+	function newMap(){
+		var obj= Object.create(null);
+
+		Object.defineProperty(obj, 'put',{
+			value: function(key, val){
+				this[key]= val;
+			},
+			enumerable:false,
+			configurable:false
+		});
+
+		Object.defineProperty(obj, 'remove', {
+			value: function(key){
+
+				if(this[key] !== 'undefined'){
+					return delete this[key];
+				}
+
+				return false;
+			},
+			enumerable:false,
+			configurable:false
+		});
+
+		return obj;
+
+	}
+
+	musk.newMap= newMap;
 
 }).call(this)

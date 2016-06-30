@@ -25,6 +25,23 @@ mixin(obj1 , [obj2, obj3])
 
 now obj1 will contain all the props of both obj2 and obj3 , which will extends obj1 without the need to do inheritance 
 
+You can create a Map data structure using `musk.newMap()` 
+
+````
+var map =musk.newMap();
+
+map.put('name', 'Sam');
+map.put('age', 20);
+
+map.name='Johny';
+
+map.remove('name'); // remove name prop
+
+map.contains('age'); // true
+```
+
+
+
 
 
 

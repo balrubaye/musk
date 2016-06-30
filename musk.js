@@ -82,6 +82,7 @@
 	function newMap(){
 		var obj= Object.create(null);
 
+		//put new key/ value pair
 		Object.defineProperty(obj, 'put',{
 			value: function(key, val){
 				this[key]= val;
@@ -90,6 +91,7 @@
 			configurable:false
 		});
 
+		//remove key/value pair
 		Object.defineProperty(obj, 'remove', {
 			value: function(key){
 
@@ -103,7 +105,19 @@
 			configurable:false
 		});
 
+		//check if a key is available in the map
+		Object.defineProperty(obj, 'contains', {
+			value: function(key){
+				if(arguments.length === 0){
+					throw Error('The key should be provided ');
+				}
+
+				return typeof obj[key] !== 'undefined';
+			}
+		});
 		return obj;
+
+		
 
 	}
 
